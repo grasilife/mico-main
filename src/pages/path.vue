@@ -5,7 +5,7 @@
 </template>
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { computed, nextTick, onMounted, watch } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 let route = useRoute();
 let path = computed(() => {
   return route.params.id;
@@ -32,9 +32,7 @@ onMounted(() => {
 watch(
   () => route.params,
   () => {
-    nextTick(() => {
-      loadingCom();
-    });
+    loadingCom();
     console.log(21212121);
   },
   {
